@@ -34,6 +34,10 @@ def dota(message):
 def updatedrain(message):
     bot.send_message(chat_id=message.chat.id, text='Начинаем обновление репозитория на гитхабе (~50 секунд)')
     time.sleep(1)
+    cd = os.getcwd()
+    os.system('cd ' + str(cd))
+    bot.send_message(chat_id=message.chat.id, text='cd ' + str(cd))
+    time.sleep(5)
     os.system('git init')
     time.sleep(10)
     os.system('git add .')
@@ -60,6 +64,8 @@ def text(message):
         bot.send_photo(chat_id=message.chat.id, caption='♿Аирлейнс♿',
                        photo='https://cs.pikabu.ru/post_img/2013-01_2/1357669124_46598435.jpg')
     check_user('users_id.txt', message)
+    cd = os.getcwd()
+    os.system('cd ' + str(cd))
 
 
 bot.polling(none_stop=True)
