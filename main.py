@@ -33,6 +33,7 @@ def dota(message):
 
 @bot.message_handler(commands='updatedrain')
 def updatedrain(message):
+    bot.send_message(chat_id=message.chat.id, text='Начинаем обновление репозитория на гитхабе (~50 секунд)')
     os.system('git init')
     time.sleep(10)
     os.system('git add .')
@@ -43,6 +44,7 @@ def updatedrain(message):
     time.sleep(10)
     os.system('git push -u origin main')
     time.sleep(10)
+    bot.send_message(chat_id=message.chat.id, text= 'Репозиторий на гитхабе обновлен')
 
 
 @bot.message_handler(content_types=['text'])
