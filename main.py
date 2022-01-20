@@ -13,7 +13,6 @@ def check_user(txt, message):
     lines = f.readlines()
     for line in lines:
         if line[0:len(line) - 1] == str(message.chat.id):
-            print(message)
             we_have = True
     if not we_have:
         f.close()
@@ -34,6 +33,7 @@ def dota(message):
 @bot.message_handler(commands='updatedrain')
 def updatedrain(message):
     bot.send_message(chat_id=message.chat.id, text='Начинаем обновление репозитория на гитхабе (~50 секунд)')
+    time.sleep(1)
     os.system('git init')
     time.sleep(10)
     os.system('git add .')
