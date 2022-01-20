@@ -33,9 +33,16 @@ def dota(message):
 
 @bot.message_handler(commands='updatedrain')
 def updatedrain(message):
+    os.system('git init')
+    time.sleep(10)
+    os.system('git add .')
+    time.sleep(10)
     os.system('git commit -m "new member"')
     time.sleep(10)
-    os.system('git')
+    os.system('git pull origin main')
+    time.sleep(10)
+    os.system('git push -u origin main')
+    time.sleep(10)
 
 
 @bot.message_handler(content_types=['text'])
