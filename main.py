@@ -1,6 +1,8 @@
 import telebot
 from telebot import types
 from random import randint
+import os
+import time
 
 bot = telebot.TeleBot('5014594116:AAHpVXrVwyRtrMJI93TEDBmHQCgtXWZdktA')
 
@@ -26,8 +28,14 @@ def dota(message):
     key = types.ReplyKeyboardMarkup(row_width=1, resize_keyboard=True)
     but = types.KeyboardButton("🎲Рандомный герой🎲")
     key.add(but)
-    bot.send_message(chat_id=message.chat.id, text='🔯 Бот который скажет на каком герое поиграть сёдня',
-                     reply_markup=key)
+    bot.send_message(chat_id=message.chat.id, text='🔯 Бот который скажет на каком герое поиграть сёдня', reply_markup=key)
+
+
+@bot.message_handler(commands='updatedrain')
+def updatedrain(message):
+    os.system('git commit -m "new member"')
+    time.sleep(10)
+    os.system('git')
 
 
 @bot.message_handler(content_types=['text'])
